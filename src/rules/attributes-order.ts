@@ -1,5 +1,5 @@
 import type { Rule } from "eslint";
-import { classify, rank } from "../groups.ts";
+import { classify, rank } from "../groups.js";
 
 type AttrInfo = {
   node: any;

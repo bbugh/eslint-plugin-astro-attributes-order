@@ -1,5 +1,5 @@
 import * as astroParser from "astro-eslint-parser";
-import attributesOrder from "./rules/attributes-order.ts";
+import attributesOrder from "./rules/attributes-order.js";
 
 const meta = {
   name: "eslint-plugin-astro-attributes-order",
