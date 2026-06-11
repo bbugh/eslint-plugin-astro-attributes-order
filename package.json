@@ -1,8 +1,17 @@
 {
   "name": "eslint-plugin-astro-attributes-order",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "ESLint 9 flat-config plugin enforcing a fixed attribute order on .astro template elements.",
   "license": "MIT",
+  "author": "Brian Bugh",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbugh/eslint-plugin-astro-attributes-order.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bbugh/eslint-plugin-astro-attributes-order/issues"
+  },
+  "homepage": "https://github.com/bbugh/eslint-plugin-astro-attributes-order#readme",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -23,7 +32,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "simple-git-hooks"
+    "prepare": "simple-git-hooks",
+    "prepublishOnly": "pnpm build && pnpm test"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
