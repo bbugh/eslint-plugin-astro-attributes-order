@@ -1,9 +1,11 @@
 import * as astroParser from "astro-eslint-parser";
 import attributesOrder from "./rules/attributes-order.js";
 
+import pkg from "../package.json" with { type: "json" };
+
 const meta = {
-  name: "eslint-plugin-astro-attributes-order",
-  version: "0.1.0",
+  name: pkg.name,
+  version: pkg.version,
 };
 
 const plugin = {
