@@ -1,0 +1,18 @@
+---
+const x = 1;
+---
+
+<div is="custom" id="a" class="c" client:load href="/a" aria-label="l" onclick={fn} data-x={x} />
+
+<form
+  id="form"
+  name="contact"
+  class="form"
+  action="/api"
+  method="post"
+  aria-label="Contact"
+  onsubmit={submit}
+  data-form="main"
+/>
+
+<div {...rest} />

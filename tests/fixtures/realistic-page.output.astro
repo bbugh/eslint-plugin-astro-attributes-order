@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+
+const title = "Hello";
+const items = [1, 2, 3];
+---
+
+<Layout title={title}>
+  <main id="main" class="container mx-auto" aria-labelledby="hero" data-page="home">
+    <h1 id="hero" class="text-4xl font-bold" data-test="title">{title}</h1>
+
+    <ul
+      id="items"
+      class="space-y-2"
+      role="list"
+      aria-live="polite"
+      onclick={handleClick}
+      data-list="items"
+    >
+      {items.map((item) => (
+        <li key={item} class="p-2" data-id={item}>{item}</li>
+      ))}
+    </ul>
+
+    <form
+      id="contact-form"
+      class="mt-8"
+      action="/api/contact"
+      method="post"
+      aria-describedby="contact-hint"
+      onsubmit={handleSubmit}
+      data-form="contact"
+    >
+      <input
+        name="email"
+        id="email"
+        class="input"
+        placeholder="Email"
+        type="email"
+        required
+        aria-required="true"
+        onchange={validate}
+        data-field="email"
+      />
+      <Button id="submit" class="primary" type="submit" onclick={track} data-cta="submit">
+        Send
+      </Button>
+    </form>
+
+    <img
+      id="hero-img"
+      class="rounded-lg"
+      src="/hero.png"
+      alt="Hero"
+      width="1200"
+      height="600"
+      loading="lazy"
+      aria-hidden="false"
+      onload={onImgLoad}
+      data-asset="hero"
+    />
+  </main>
+</Layout>

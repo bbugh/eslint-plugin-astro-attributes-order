@@ -1,6 +1,13 @@
 # eslint-plugin-astro-attributes-order
 
-ESLint 9 flat-config plugin enforcing a fixed attribute order on `.astro` template elements. No configuration. Auto-fixable.
+Enforce an opinionated fixed attribute order on elements in `.astro` template elements, modeled after `vue/attributes-order`.
+
+```html
+<!-- before -->
+<Card onclick="func" class="bg-white" id="some-card" />
+<!-- after -->
+<Card id="some-card" class="bg-white" onclick="func" />
+```
 
 ## Install
 
@@ -12,14 +19,16 @@ Requires `eslint@^9` and Node 20+.
 
 ## Usage
 
-```js
+```diff
 // eslint.config.js
-import attrOrder from "eslint-plugin-astro-attributes-order";
+import eslintPluginAstro from "eslint-plugin-astro";
++import eslintPluginAstroAttrOrder from "eslint-plugin-astro-attributes-order";
 
-export default [attrOrder.configs.recommended];
+export default [
+  ...eslintPluginAstro.configs.recommended,
++  eslintPluginAstroAttrOrder.configs.recommended
+];
 ```
-
-`configs.recommended` is a single flat-config object that registers `astro-eslint-parser` for `**/*.astro` and turns the rule on as `error`.
 
 ## Group order
 
@@ -32,18 +41,14 @@ export default [attrOrder.configs.recommended];
 7. Event handlers: `on*`
 8. `data-*`
 
-Between groups: enforced. Within a group: source order is preserved.
-
-`{...spread}` is a hard barrier — attributes are sorted independently on each side and never reordered across a spread.
-
-Applies to both lowercase HTML elements and uppercase component elements.
+Group order is enforced, but within groups the source order is preserved.
 
 ## Attribution
 
-The fixer and AST handling are informed by:
+This plugin would not have been possible without the work that went into these other libraries:
 
-- [`eslint-plugin-perfectionist`](https://github.com/azat-io/eslint-plugin-perfectionist) (`sort-astro-attributes`) — MIT
-- [`eslint-plugin-astro`](https://github.com/ota-meshi/eslint-plugin-astro) (`sort-attributes`) — MIT
+- [`eslint-plugin-astro`](https://github.com/ota-meshi/eslint-plugin-astro)
+- [`eslint-plugin-vue`](https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/attributes-order.md)
 
 ## License
 
