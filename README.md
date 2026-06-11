@@ -1,6 +1,6 @@
 # eslint-plugin-astro-attributes-order
 
-Enforce an opinionated fixed attribute order on elements in `.astro` template elements, modeled after `vue/attributes-order`.
+Enforce an opinionated fixed attribute order on elements in `.astro` template elements, modeled after `vue/attributes-order`, with autofix support.
 
 ```html
 <!-- before -->
@@ -9,15 +9,26 @@ Enforce an opinionated fixed attribute order on elements in `.astro` template el
 <Card id="some-card" class="bg-white" onclick="func" />
 ```
 
+### Requirements
+
+- `eslint@^9 || ^10`
+- Node 20+
+
 ## Install
+
+```sh
+npm add -D eslint-plugin-astro-attributes-order
+```
 
 ```sh
 pnpm add -D eslint-plugin-astro-attributes-order
 ```
 
-Requires `eslint@^9` and Node 20+.
+```sh
+yarn add -D eslint-plugin-astro-attributes-order
+```
 
-## Usage
+### Usage
 
 ```diff
 // eslint.config.js
@@ -41,7 +52,8 @@ export default [
 7. Event handlers: `on*`
 8. `data-*`
 
-Group order is enforced, but within groups the source order is preserved.
+> [!NOTE]
+> Group order is enforced, but within groups your source order is preserved.
 
 ## Attribution
 
@@ -52,4 +64,6 @@ This plugin would not have been possible without the work that went into these o
 
 ## License
 
-MIT
+The eslint-plugin-astro-attributes-order library is available as open source under the terms of the MIT License.
+
+This license means you can use it however you want, in whatever sorted order you want, as long as you give me credit.
