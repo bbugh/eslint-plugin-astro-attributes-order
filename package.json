@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-astro-attributes-order",
   "version": "1.0.0",
-  "description": "ESLint 9 flat-config plugin enforcing a fixed attribute order on .astro template elements.",
+  "description": "ESLint 9+ plugin to sort astro template attributes, inspired by vue/attributes-order.",
   "license": "MIT",
   "author": "Brian Bugh",
   "repository": {
@@ -51,7 +51,7 @@
     "node": ">=20"
   },
   "peerDependencies": {
-    "eslint": "^9.0.0"
+    "eslint": "^9.0.0 || ^10.0.0"
   },
   "dependencies": {
     "astro-eslint-parser": "^1.2.0"
@@ -61,7 +61,7 @@
     "@types/eslint": "^9.6.1",
     "@types/node": "^20.0.0",
     "@typescript/native-preview": "7.0.0-dev.20260504.1",
-    "eslint": "^9.0.0",
+    "eslint": "^10.4.1",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.3",
     "simple-git-hooks": "^2.13.1",
